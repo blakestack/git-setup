@@ -43,18 +43,17 @@ fi
 sleep 2
 
 read -p 'Are you a Mac user? (y/n) ' macuser
- 36
- 37 if [ "$macuser" = "y" ]; then
- 38   echo "Great, let's continue..."
+ if [ "$macuser" = "y" ]; then
+      echo "Great, let's continue..."
       echo "ignoring pesky .DS_Store files so they do not show up in your commits."
       sleep 1
       echo .DS_Store >> ~/.gitignore_global
       git config --global core.excludesfile ~/.gitignore_global
- 39 else
- 40         echo "Alright, let's continue"
- 41 fi
- 42
- 43 sleep 2
+    else
+            echo "Alright, let's continue"
+    fi
+   
+    sleep 2
 
  echo "Checking if you have an Ed25519 algorithm SSH key already installed."
  ls ~/.ssh/id_ed25519.pub
@@ -64,12 +63,12 @@ sleep 2
   echo "We need to create an Ed25519 algorithm SSH key"
   sleep 1
   echo "Generating SSH key..."
- 67 sleep 1
- 68 yes "" | ssh-keygen -t ed25519 -C $email
- 69
- 70 echo "Saving to default location..."
- 71 echo "No passoword set, (can be set later)."
- 72 sleep 1
+    sleep 1
+    yes "" | ssh-keygen -t ed25519 -C $email
+   
+    echo "Saving to default location..."
+    echo "No passoword set, (can be set later)."
+    sleep 1
 else
 	echo "Alright."
 fi
