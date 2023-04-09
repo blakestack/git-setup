@@ -56,10 +56,10 @@ read -p 'Are you a Mac user? (y/n) ' macuser
     sleep 2
 
  echo "Checking if you have an Ed25519 algorithm SSH key already installed."
- ls ~/.ssh/id_ed25519.pub
+ sshKey= $(ls ~/.ssh/id_ed25519.pub)
 sleep 2
 
- if ls ~/.ssh/id_ed25519.pub | grep -q 'No such file or directory'; then
+ if [[ $sshKey == *"No such file or directory"* ]]; then
   echo "We need to create an Ed25519 algorithm SSH key"
   sleep 1
   echo "Generating SSH key..."
@@ -77,7 +77,7 @@ echo "Your SSH key: "
 cat ~/.ssh/id_ed25519.pub
 
 echo "Next you need to copy your public SSH key."
-sleep 1
+sleep 2
 echo "Highlight and copy the output, which starts with 'ssh-ed25519' and ends with your email address."
 sleep 2
 
