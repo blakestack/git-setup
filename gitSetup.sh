@@ -85,7 +85,7 @@ echo "Now, go to GitHub in your browser window and paste the key you copied into
 
 sleep 1
 
-echo "Awesome, your ready to commit."
+echo "Awesome, you're ready to commit."
 sleep 1
 
 echo "You can follow this link to verify your SSH connection."
