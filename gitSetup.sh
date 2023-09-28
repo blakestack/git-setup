@@ -6,13 +6,13 @@ echo "What is your GitHub username?"
 read -p 'Username: ' username
 echo "Setting global user.name..."
 sleep 1
-git config --global user.name $username
+git config --global user.name "$username"
 sleep 2
 echo "What is your GitHub user email?"
 sleep 1
 read -p 'Email Address: ' email
 echo "Setting global user.email..."
-git config --global user.email $email
+git config --global user.email "$email"
 sleep 2
 echo "Changing default branch to main..."
 sleep 3
@@ -55,16 +55,16 @@ read -p 'Are you a Mac user? (y/n) ' macuser
    
     sleep 2
 
- echo "Checking if you have an Ed25519 algorithm SSH key already installed."
- sshKey= $(ls ~/.ssh/id_ed25519.pub)
+echo "Checking if you have an Ed25519 algorithm SSH key already installed."
+sshKey=$(ls ~/.ssh/id_ed25519.pub)
 sleep 2
 
- if [[ $sshKey == *"No such file or directory"* ]]; then
+ if [[ "$sshKey" == *"No such file or directory"* ]]; then
   echo "We need to create an Ed25519 algorithm SSH key"
   sleep 1
   echo "Generating SSH key..."
     sleep 1
-    yes "" | ssh-keygen -t ed25519 -C $email
+    yes "" | ssh-keygen -t ed25519 -C "$email"
    
     echo "Saving to default location..."
     echo "No passoword set, (can be set later)."
