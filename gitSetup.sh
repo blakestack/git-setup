@@ -32,9 +32,9 @@ git config --get user.name
 echo "Email - "
 git config --get user.email
 
-read -p 'Are these values correct? (y/n) ' response
+read -p 'Are these values correct? (Y/n) ' response
 
-if [ "$response" = "y" ]; then
+if [ "$response" = "Y" ] || [ "$response" = "y" ]; then
   echo "Great, let's continue..."
 else
 	echo "Let's fix that..."
@@ -42,8 +42,8 @@ fi
 
 sleep 2
 
-read -p 'Are you a Mac user? (y/n) ' macuser
- if [ "$macuser" = "y" ]; then
+read -p 'Are you a Mac user? (Y/n) ' macuser
+ if [ "$macuser" = "Y" ] || [ "$macuser" = "y" ]; then
       echo "Great, let's continue..."
       echo "ignoring pesky .DS_Store files so they do not show up in your commits."
       sleep 1
