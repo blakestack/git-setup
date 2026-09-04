@@ -59,7 +59,7 @@ echo "Checking if you have an Ed25519 algorithm SSH key already installed."
 ssh_key=$(cat ~/.ssh/id_ed25519.pub)
 sleep 2
 
-if [[ $ssh_key =~ *"No such file or directory"* ]]; then
+if [[ "$ssh_key" =~ "No such file or directory" ]]; then
     echo "We need to create an Ed25519 algorithm SSH key"
     sleep 4
     echo "Generating SSH key..."
