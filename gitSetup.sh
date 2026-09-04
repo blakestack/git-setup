@@ -1,26 +1,26 @@
 #!/bin/bash
 
 echo "Setting up Git..."
-sleep 3
+sleep 4
 echo "What is your GitHub username?"
 read -p 'Username: ' username
 echo "Setting global user.name..."
-sleep 1
+sleep 2
 git config --global user.name "$username"
 sleep 2
 echo "What is your GitHub user email?"
-sleep 1
+sleep 2
 read -p 'Email Address: ' email
 echo "Setting global user.email..."
 git config --global user.email "$email"
 sleep 2
 echo "Changing default branch to main..."
-sleep 3
+sleep 4
 git config --global init.defaultBranch main
 
 echo "Enabling colorful output..."
 git config --global color.ui auto
-sleep 1
+sleep 2
 echo "Setting the default branch reconciliation behavior to 'merge'..."
 git config --global pull.rebase false
 sleep 2
@@ -46,7 +46,7 @@ read -p 'Are you a Mac user? (Y/n) ' macuser
  if [ "$macuser" = "Y" ] || [ "$macuser" = "y" ]; then
       echo "Great, let's continue..."
       echo "ignoring pesky .DS_Store files so they do not show up in your commits."
-      sleep 1
+      sleep 2
       echo .DS_Store >> ~/.gitignore_global
       git config --global core.excludesfile ~/.gitignore_global
     else
@@ -59,16 +59,17 @@ echo "Checking if you have an Ed25519 algorithm SSH key already installed."
 ssh_key=$(cat ~/.ssh/id_ed25519.pub)
 sleep 2
 
- if [[ "$ssh_key" == *"No such file or directory"* ]]; then
+ if [[ $ssh_key == *"No such file or directory"* ]]; then
   echo "We need to create an Ed25519 algorithm SSH key"
-  sleep 1
+  sleep 4
   echo "Generating SSH key..."
-    sleep 1
-    yes "" | ssh-keygen -t ed25519 -C "$email"
+    sleep 2
+    
+    ssh-keygen -t ed25519 -C "$email"
    
     echo "Saving to default location..."
     echo "No passoword set, (can be set later)."
-    sleep 1
+    sleep 2
 else
 	echo "Alright."
 fi
@@ -83,10 +84,10 @@ sleep 2
 
 echo "Now, go to GitHub in your browser window and paste the key you copied into the SSH  key field. Keep the key type as 'Authentication Key' and then, click 'Add SSH key'."
 
-sleep 1
+sleep 2
 
 echo "Awesome, you're ready to commit."
-sleep 1
+sleep 2
 
 echo "You can follow this link to verify your SSH connection."
 
