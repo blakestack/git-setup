@@ -59,10 +59,10 @@ echo "Checking if you have an Ed25519 algorithm SSH key already installed."
 ssh_key=$(cat ~/.ssh/id_ed25519.pub)
 sleep 2
 
- if [[ $ssh_key == *"No such file or directory"* ]]; then
-  echo "We need to create an Ed25519 algorithm SSH key"
-  sleep 4
-  echo "Generating SSH key..."
+if [[ $ssh_key == *"No such file or directory"* ]]; then
+    echo "We need to create an Ed25519 algorithm SSH key"
+    sleep 4
+    echo "Generating SSH key..."
     sleep 2
     
     ssh-keygen -t ed25519 -C "$email"
@@ -71,7 +71,7 @@ sleep 2
     echo "No passoword set, (can be set later)."
     sleep 2
 else
-	echo "Alright."
+	  echo "Alright."
 fi
 
 echo "Your SSH key: "
